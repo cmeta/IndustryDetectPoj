@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingDialog</class>
+ <widget class="QDialog" name="SettingDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>618</width>
+    <height>449</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>全局设置窗口</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>9</y>
+     <width>601</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 11pt &quot;楷体&quot; ;</string>
+      </property>
+      <property name="title">
+       <string>全局设置</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>581</width>
+         <height>201</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>保存图像：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="label_5">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(20, 20, 230);</string>
+          </property>
+          <property name="text">
+           <string>图像高度（像素）</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QTextEdit" name="widthEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>图像保存路径：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(20, 20, 230);</string>
+          </property>
+          <property name="text">
+           <string>图像宽度（像素）</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QTextEdit" name="pathEdit">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>图像检测延迟(mm)：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="styleSheet">
+           <string notr="true">color:rgb(20,20,230);</string>
+          </property>
+          <property name="text">
+           <string>报错延迟数（张）：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QTextEdit" name="errorDelayEdit">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QTextEdit" name="heightEdit">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QTextEdit" name="capDealyEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QTextEdit" name="detectNumEdit">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="styleSheet">
+           <string notr="true">color:rgb(20,20,230);</string>
+          </property>
+          <property name="text">
+           <string>最大检测区域数（列）：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QCheckBox" name="isSaveCheckBox">
+          <property name="text">
+           <string>是否保存图像</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>240</y>
+         <width>581</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>码盘参数设置</string>
+       </property>
+       <widget class="QWidget" name="horizontalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>561</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QRadioButton" name="radioButton_3">
+           <property name="text">
+            <string>500 P/R</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_2">
+           <property name="text">
+            <string>1024 P/R</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton">
+           <property name="text">
+            <string>2000 P/R</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="backBtn">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>360</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>返回</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="saveCfgBtn">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>360</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>保存配置</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>390</y>
+         <width>581</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'楷体'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;注：蓝色字体配置信息修改后需要保存配置并重启软件才能生效，其余重新开始检测生效&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

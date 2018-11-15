@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TypeEditWidget</class>
+ <widget class="QWidget" name="TypeEditWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>类型编辑</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 12pt &quot;楷体&quot;;</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>671</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="maximumSize">
+       <size>
+        <width>690</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>识别属性</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>651</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="4" column="1">
+         <widget class="QTextEdit" name="textEditCharNum">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="comboBoxType">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>数据类型：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>字符个数：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>角度：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="comboBoxAngle">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>行数：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QTextEdit" name="textEditRowNum">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="maximumSize">
+       <size>
+        <width>690</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>比对属性</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>19</y>
+         <width>651</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboBoxCompareType">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>比对方式：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>增量/固定内容
+时间差/数据库比对</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QTextEdit" name="textEditCompareSet">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>60</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="okBtn">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>390</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="helpBtn">
+   <property name="geometry">
+    <rect>
+     <x>574</x>
+     <y>390</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>帮助与说明</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
