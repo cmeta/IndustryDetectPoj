@@ -153,111 +153,111 @@ int main(int argc, char *argv[])
 //**********************************发送 AD 配置 PWM配置 校正系数配置***********************************\\
 	//初始化变量 包括指令
 
-	//UCHAR adCfgBuff[18];
-	//UCHAR pwmCfgBuff[2];
-	//UCHAR correctCfgBuff[1296 + 1296 + 2];  //分开发
-	//UCHAR buffTmp[1296];
-	//CCyUSBDevice *usbDevice = new CCyUSBDevice(NULL);
-	////bool a11 = usbDevice->IsOpen();
-	//if (!(usbDevice->IsOpen())) {
-	//	MessageBox(NULL, TEXT("设备连接失败！"), TEXT("提示"), MB_OK);
-	//	return 0;
-	//}
-	////***************************************发送AD配置************************************
-	//ifstream adFile("Config//Fpga//AdCfg.txt");
-	//adCfgBuff[0] = 0x01;
-	//adCfgBuff[1] = 0xF0;
-	//int temp = 0;
-	//for (int i = 2; i < 18; i++) {
-	//	adFile >> temp;
-	//	adCfgBuff[i] = temp;
-	//}
-	//long len = 18;
-	//usbDevice->BulkOutEndPt->XferData(adCfgBuff, len);
+	UCHAR adCfgBuff[18];
+	UCHAR pwmCfgBuff[2];
+	UCHAR correctCfgBuff[1296 + 1296 + 2];  //分开发
+	UCHAR buffTmp[1296];
+	CCyUSBDevice *usbDevice = new CCyUSBDevice(NULL);
+	//bool a11 = usbDevice->IsOpen();
+	if (!(usbDevice->IsOpen())) {
+		MessageBox(NULL, TEXT("设备连接失败！"), TEXT("提示"), MB_OK);
+		return 0;
+	}
+	//***************************************发送AD配置************************************
+	ifstream adFile("Config//Fpga//AdCfg.txt");
+	adCfgBuff[0] = 0x01;
+	adCfgBuff[1] = 0xF0;
+	int temp = 0;
+	for (int i = 2; i < 18; i++) {
+		adFile >> temp;
+		adCfgBuff[i] = temp;
+	}
+	long len = 18;
+	usbDevice->BulkOutEndPt->XferData(adCfgBuff, len);
 
-	////****************************************发送PWM配置***********************************
-	//
-	//ifstream pwmFile("Config//Fpga//PwmCfg");
-	//pwmFile >> temp;
-	//
-	//if (temp > 255) {
-	//	if (513 > temp && temp > 255) {
-	//		pwmCfgBuff[0] = temp - 256;
-	//		pwmCfgBuff[1] = 0xF8 + 1;
-	//	}
-	//	if (767 >= temp && temp >= 513) {
-	//		pwmCfgBuff[0] = temp - 513;
-	//		pwmCfgBuff[1] = 0xF8 + 2;
-	//	}
-	//	if (1024 >= temp && temp > 767) {
-	//		pwmCfgBuff[0] = temp - 767;
-	//		pwmCfgBuff[1] = 0xF8 + 3;
-	//	}
-	//}
-	//else {
-	//	pwmCfgBuff[0] = temp;
-	//	pwmCfgBuff[1] = 0xF8;
-	//}
+	//****************************************发送PWM配置***********************************
+	
+	ifstream pwmFile("Config//Fpga//PwmCfg");
+	pwmFile >> temp;
+	
+	if (temp > 255) {
+		if (513 > temp && temp > 255) {
+			pwmCfgBuff[0] = temp - 256;
+			pwmCfgBuff[1] = 0xF8 + 1;
+		}
+		if (767 >= temp && temp >= 513) {
+			pwmCfgBuff[0] = temp - 513;
+			pwmCfgBuff[1] = 0xF8 + 2;
+		}
+		if (1024 >= temp && temp > 767) {
+			pwmCfgBuff[0] = temp - 767;
+			pwmCfgBuff[1] = 0xF8 + 3;
+		}
+	}
+	else {
+		pwmCfgBuff[0] = temp;
+		pwmCfgBuff[1] = 0xF8;
+	}
 
-	//len = 2;
-	//usbDevice->BulkOutEndPt->XferData(pwmCfgBuff, len);
+	len = 2;
+	usbDevice->BulkOutEndPt->XferData(pwmCfgBuff, len);
 
-	////**************************************发送校正系数配置*******************************
-	//ifstream correctBFile("Config//Fpga//Bcfg.txt");
-	//ifstream correctKFile("Config//Fpga//Kcfg.txt");
+	//**************************************发送校正系数配置*******************************
+	ifstream correctBFile("Config//Fpga//Bcfg.txt");
+	ifstream correctKFile("Config//Fpga//Kcfg.txt");
 
-	////UCHAR correctCfgOrder[2] = { 0x02 ,0xF0 };
+	//UCHAR correctCfgOrder[2] = { 0x02 ,0xF0 };
 
-	//double k = 0.0;
-	//double k0 = 0.0;
-	//double b0 = 0.0;
+	double k = 0.0;
+	double k0 = 0.0;
+	double b0 = 0.0;
 
-	//for (int i = 0; i < 1296; i += 2) {
-	//	correctKFile >> k;
-	//	buffTmp[i] = ((k*16.0) > 255 ? 255 : (int)(k * 16.0));
-	//}
-	//int b;
-	//for (int i = 1; i < 1296; i += 2) {
+	for (int i = 0; i < 1296; i += 2) {
+		correctKFile >> k;
+		buffTmp[i] = ((k*16.0) > 255 ? 255 : (int)(k * 16.0));
+	}
+	int b;
+	for (int i = 1; i < 1296; i += 2) {
 
-	//	correctBFile >> b;
-	//	buffTmp[i] = b;
-	//}
-	//int bais = 0;
-	//UCHAR buffTmpArry[1296];
-	//if (bais == 0) {
-	//	memcpy(buffTmpArry, buffTmp, 1296);
-	//}
-	////左移
-	//if (bais > 0) {
-	//	int a = bais * 2;
-	//	int *pData = new int[a];
-	//	memcpy(pData, buffTmp, a);
-	//	memcpy(buffTmpArry, buffTmp + a, 1296 - a);
-	//	memcpy(buffTmpArry + 1296 - a, pData, a);
-	//}
-	//if (bais < 0) {
-	//	int a = abs(bais) * 2;
-	//	int *pData = new int[a];
-	//	memcpy(pData, buffTmp + 1296 - a, a);
-	//	memcpy(buffTmpArry, pData, a);
-	//	memcpy(buffTmpArry + a, buffTmp, 1296 - a);
-	//}
+		correctBFile >> b;
+		buffTmp[i] = b;
+	}
+	int bais = 0;
+	UCHAR buffTmpArry[1296];
+	if (bais == 0) {
+		memcpy(buffTmpArry, buffTmp, 1296);
+	}
+	//左移
+	if (bais > 0) {
+		int a = bais * 2;
+		int *pData = new int[a];
+		memcpy(pData, buffTmp, a);
+		memcpy(buffTmpArry, buffTmp + a, 1296 - a);
+		memcpy(buffTmpArry + 1296 - a, pData, a);
+	}
+	if (bais < 0) {
+		int a = abs(bais) * 2;
+		int *pData = new int[a];
+		memcpy(pData, buffTmp + 1296 - a, a);
+		memcpy(buffTmpArry, pData, a);
+		memcpy(buffTmpArry + a, buffTmp, 1296 - a);
+	}
 
-	//correctCfgBuff[0] = 0x02;
-	//correctCfgBuff[1] = 0xF0;
-	//memcpy(correctCfgBuff + 2, buffTmpArry, 1296);
-	//memcpy(correctCfgBuff + 1298, buffTmpArry, 1296);
+	correctCfgBuff[0] = 0x02;
+	correctCfgBuff[1] = 0xF0;
+	memcpy(correctCfgBuff + 2, buffTmpArry, 1296);
+	memcpy(correctCfgBuff + 1298, buffTmpArry, 1296);
 
-	//len = 1296 + 1296 + 2;
-	//usbDevice->BulkOutEndPt->XferData(correctCfgBuff, len);
+	len = 1296 + 1296 + 2;
+	usbDevice->BulkOutEndPt->XferData(correctCfgBuff, len);
 
-	//
-	////**************************结束指令发送***************************************
+	
+	//**************************结束指令发送***************************************
 
-	//adFile.close();
-	//pwmFile.close();
-	//correctBFile.close();
-	//correctKFile.close();
+	adFile.close();
+	pwmFile.close();
+	correctBFile.close();
+	correctKFile.close();
 
 
 	//ofstream t("Config//Fpga//Bcfg.txt");
