@@ -1,0 +1,2 @@
+# IndustryDetectPoj
+IndustryDetect project
